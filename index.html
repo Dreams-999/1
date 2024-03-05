@@ -12,7 +12,7 @@
  <h1>Lost in Space</h1>
  <p>Offiziell ins nirgendwo gefunden</p>
 
- <h2>Herzlich Willkommen bei Lost In Space, wir sind ein Tester-Unternehmen und testen Links die ins nichts führen... so wie dieser :) <br>Also viel Spaß im nirgendwo, wir tracken bald deine hier verschwendete Zeit wie kleine GO's lol</h2>
+ <h2>Herzlich Willkommen bei Lost In Space, wir sind ein Tester-Unternehmen und testen Links die ins nichts führen... so wie dieser :) <br>Also viel Spaß im nirgendwo, bald kommt mehr lol</h2>
  <br>
  <br>
  <br>
@@ -27,73 +27,4 @@
  </p>
  </body>
 
- <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Real-Time Time Tracking Tool</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  .container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  h6 {
-    text-align: center;
-  }
-  p {
-    margin: 10px 0;
-  }
-</style>
-</head>
-<body>
-<div class="container">
-  <h1>Real-Time Time Tracking Tool</h1>
-  <p id="taskName">Task: N/A</p>
-  <p id="startTime">Start Time: N/A</p>
-  <p id="elapsedTime">Elapsed Time: 00:00:00</p>
-</div>
-<script>
-  var startTime;
-  var interval;
-
-  function startTracking() {
-    startTime = new Date();
-    document.getElementById("startTime").innerText = "Start Time: " + formatTime(startTime);
-    interval = setInterval(updateElapsedTime, 1000);
-  }
-
-  function stopTracking() {
-    clearInterval(interval);
-  }
-
-  function updateElapsedTime() {
-    var currentTime = new Date();
-    var elapsedTime = currentTime - startTime;
-    document.getElementById("elapsedTime").innerText = "Elapsed Time: " + formatElapsedTime(elapsedTime);
-  }
-
-  function formatTime(date) {
-    var hours = addZero(date.getHours());
-    var minutes = addZero(date.getMinutes());
-    var seconds = addZero(date.getSeconds());
-    return hours + ":" + minutes + ":" + seconds;
-  }
-
-  function formatElapsedTime(elapsedTime) {
-    var hours = addZero(Math.floor(elapsedTime / (1000 * 60 * 60)));
-    var minutes = addZero(Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60)));
-    var seconds = addZero(Math.floor((elapsedTime % (1000 * 60)) / 1000));
-    return hours + ":" + minutes + ":" + seconds;
-  }
-
-  function addZero(num) {
-    return (num < 10 ? "0" : "") + num;
-  }
 </html>
