@@ -32,31 +32,30 @@
 
 
  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zeiterfassung</title>
-<style>
-.container {
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeiterfassung</title>
+ <style>
+  .container {
     text-align: center;
     margin-top: 50px;
-}
+ }
 
-#timer {
+ #timer {
     font-size: 36px;
     margin-bottom: 20px;
-}
-</style>
-</head>
-<body>
-<div class="container">
+ }
+ </style>
+ <body>
+  <div class="container">
     <h1>Zeiterfassung</h1>
     <div id="timer">00:00:00</div>
-</div>
-<script>
-let seconds = 0;
-let minutes = 0;
-let hours = 0;
+  </div>
+  <script>
+   let seconds = 0;
+   let minutes = 0;
+   let hours = 0;
 
-function updateTimer() {
+  function updateTimer() {
     seconds++;
     if (seconds === 60) {
         seconds = 0;
@@ -67,16 +66,16 @@ function updateTimer() {
         }
     }
     document.getElementById('timer').innerText = pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
-}
+ }
 
-function pad(value) {
+  function pad(value) {
     return value < 10 ? '0' + value : value;
-}
+ }
 
 // Timer wird alle 1000 Millisekunden (1 Sekunde) aktualisiert
-setInterval(updateTimer, 1000);
-</script>
-
+  setInterval(updateTimer, 1000);
+  </script>
+ </body>
 
 
 
