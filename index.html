@@ -34,15 +34,48 @@
  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zeiterfassung</title>
+<style>
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#timer {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+</style>
 </head>
 <body>
 <div class="container">
-    <h6>Zeiterfassung</h6>
+    <h1>Zeiterfassung</h1>
     <div id="timer">00:00:00</div>
 </div>
-<script src="script.js"></script>
-</body>
+<script>
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
 
+function updateTimer() {
+    seconds++;
+    if (seconds === 60) {
+        seconds = 0;
+        minutes++;
+        if (minutes === 60) {
+            minutes = 0;
+            hours++;
+        }
+    }
+    document.getElementById('timer').innerText = pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
+}
+
+function pad(value) {
+    return value < 10 ? '0' + value : value;
+}
+
+// Timer wird alle 1000 Millisekunden (1 Sekunde) aktualisiert
+setInterval(updateTimer, 1000);
+</script>
 
 
 
