@@ -26,36 +26,42 @@
  ADIOS AMIGOOOOOOS
  </p>
  </body>
+ 
 
 
 
-
-
- <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zeiterfassung</title>
- <style>
-  .container {
+<title>Zeiterfassung</title>
+<style>
+.container {
     text-align: center;
     margin-top: 50px;
- }
+}
 
- #timer {
+#timer {
     font-size: 36px;
     margin-bottom: 20px;
- }
- </style>
- <body>
-  <div class="container">
+}
+</style>
+</head>
+<body>
+<div class="container">
     <h1>Zeiterfassung</h1>
     <div id="timer">00:00:00</div>
-  </div>
-  <script>
-   let seconds = 0;
-   let minutes = 0;
-   let hours = 0;
+</div>
+<script>
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
 
-  function updateTimer() {
+// Versuche, die Zeitinformationen aus dem localStorage zu laden
+if (localStorage.getItem('timerData')) {
+    const timerData = JSON.parse(localStorage.getItem('timerData'));
+    seconds = timerData.seconds;
+    minutes = timerData.minutes;
+    hours = timerData.hours;
+}
+
+function updateTimer() {
     seconds++;
     if (seconds === 60) {
         seconds = 0;
@@ -66,17 +72,23 @@
         }
     }
     document.getElementById('timer').innerText = pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
- }
 
-  function pad(value) {
+    // Speichern der Zeitinformationen im localStorage
+    localStorage.setItem('timerData', JSON.stringify({ seconds, minutes, hours }));
+}
+
+function pad(value) {
     return value < 10 ? '0' + value : value;
- }
+}
 
 // Timer wird alle 1000 Millisekunden (1 Sekunde) aktualisiert
-  setInterval(updateTimer, 1000);
-  </script>
- </body>
+setInterval(updateTimer, 1000);
+</script>
+</body>
+</html>
 
+
+ 
 
 
 </html>
