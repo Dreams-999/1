@@ -39,10 +39,7 @@
 <title>Automatic Time Tracking Tool</title>
 <style>
   body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+    
   }
   .container {
     max-width: 600px;
@@ -65,7 +62,6 @@
   <h1>Automatic Time Tracking Tool</h1>
   <p id="taskName">Task: N/A</p>
   <p id="startTime">Start Time: N/A</p>
-  <p id="endTime">End Time: N/A</p>
   <p id="totalTime">Total Time: N/A</p>
 </div>
 <script>
@@ -73,14 +69,12 @@
   var endTime;
 
   window.onload = function() {
-    startTime = new Date();
     document.getElementById("startTime").innerText = "Start Time: " + formatTime(startTime);
     document.getElementById("endTime").innerText = "End Time: Running...";
     document.getElementById("totalTime").innerText = "Total Time: Calculating...";
   };
 
   window.onunload = function() {
-    endTime = new Date();
     document.getElementById("endTime").innerText = "End Time: " + formatTime(endTime);
     var totalTime = calculateTime(startTime, endTime);
     document.getElementById("totalTime").innerText = "Total Time: " + totalTime;
@@ -94,7 +88,6 @@
     var diff = end - start;
     var hours = Math.floor(diff / 3600000);
     var minutes = Math.floor((diff % 3600000) / 60000);
-    return hours + ' hours ' + minutes + ' minutes';
   }
 </script>
  </body>
